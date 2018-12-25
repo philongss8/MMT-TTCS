@@ -76,6 +76,10 @@ else textcolor(7);
 gotoxy(50,6);
 cout<<"Ket thuc"<<endl;
 textcolor(7);
+gotoxy(30,8);
+cout<<"Nhan a,d de di chuyen option";
+gotoxy(30,9);
+cout<<"Nhan space de chon";
 }
 void Playagain(int mod)
 {gotoxy(35,5);
@@ -95,6 +99,10 @@ else textcolor(7);
 gotoxy(60,6);
 cout<<"Save point"<<endl;
 textcolor(7);
+gotoxy(30,8);
+cout<<"Nhan a,d de di chuyen option";
+gotoxy(30,9);
+cout<<"Nhan space de chon";
 }
 struct detn
 {string cauhoi;
@@ -126,7 +134,7 @@ ds.push_back(detn);
 void xuat1(detn detn,int mod,int mod2)
 {
 gotoxy(10,0);
-cout<<"Cau hoi: "<<detn.cauhoi<<endl;
+cout<<"Cau hoi : "<<detn.cauhoi<<endl;
 if(mod==1) textcolor(14);
 else textcolor(7);
 cout<<"A. "<<detn.dapan1<<endl;
@@ -148,6 +156,12 @@ cout<<mod;
 cout<<endl;
 if(mod2==1) cout<<"Dap an sai";
 else if(mod2==2) cout<<"Dap an dung";
+gotoxy (20,20);
+cout<<"Nhan E de pause hoac nop bai";
+gotoxy (20,21);
+cout<<"Nhan G de chon";
+gotoxy (20,22);
+cout<<"Nhan a,d de di chuyen cau hoi";
 }
 void menu(int mod)
 {{gotoxy(35,5);
@@ -167,6 +181,8 @@ else textcolor(7);
 gotoxy(35,9);
 cout<<"XH diem cao"<<endl;
 textcolor(7);
+gotoxy(35,12);
+cout<<"Nhan space de chon";
 }
 }
 
@@ -249,6 +265,7 @@ mod[i]=1;
 
 while(kt!=1)
 {Sleep(100);
+
 xuat1(ds[i],mod[i],dtl[i]);
 
 string da=ds[i].dapand;
@@ -308,6 +325,7 @@ for(int i=0;i<=max;i++)
 {if(dtl[i]!=0) td=td+1;
 }
 cout<<"Tien do: "<<td<<" // "<<max+1;
+cout<<"\t Vi tri hien tai: Cau "<<i+1;
 cout<<endl;
 for(int i=0;i<=max;i++)
 {if(dtl[i]==2) cout<<"O";
@@ -376,6 +394,13 @@ dsdiem[vt].ten=ten;
 dsdiem[vt].diem=diem;
 save=1;
 
+ ofstream outfile;
+   outfile.open("diem.txt");
+   for(int i=0;i<dsdiem.size()-1;i++)
+   {outfile<<dsdiem[i].ten<<","<<dsdiem[i].diem<<endl;
+   
+   }
+   outfile.close();
 
 
 
