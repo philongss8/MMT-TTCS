@@ -1,0 +1,36 @@
+con bo co may sung
+1
+2
+3
+4
+2
+con cho co may chan
+1
+2
+3
+4
+2
+1+1 bang may
+1
+2
+4
+8
+2
+2+2 bang may
+1
+2
+4
+8
+3
+3+3 bang may
+1
+2
+4
+6
+4
+4+4 bang may
+1
+2
+4
+8
+4
