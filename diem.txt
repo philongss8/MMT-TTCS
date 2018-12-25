@@ -1,10 +1,24 @@
-12323123123,50
-23131231231,50
-12321312313,49
-32131231321,48
-31231231231,48
-31231231312,46
-31231232133,10
-32131123213,9
-31231231231,7
-33123123123,1
+1
+phan anh tien
+nam
+13123123
+pat@gmail.com
+vinh ngoc nha trang
+1
+nguyen van a
+nam
+31231231
+nva@ntu.edu.vn
+nguyen dinh chieu
+0
+eqwe
+eqwe
+eqwe
+eqwewqe
+eqwe
+
+
+
+
+
+

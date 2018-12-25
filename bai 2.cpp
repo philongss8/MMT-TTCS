@@ -44,10 +44,12 @@ if(namnhuan(year)==0)
   printf("%d la mot nam nhuan", year);
   else
   printf("%d khong phai la nam nhuan", year);
-  
+  //sng= so ngay
 int sng=day;
 if(month>1)
 {
+	
+	//thuc hien dong lenh for se + them so ngay tuong ung voi thang
 for(int i=1;i<month;i++)
 { switch (i)
         {
@@ -85,11 +87,14 @@ cout<<endl;
 cout<<"cong them ngay ";
 int cong;
 cin>>cong;
-int sng2=sng+cong;
-int max;
+int sng2=sng+cong;     //sau khi + ngay van giu gia tri kieu int
+int max;				//gioi han max
 if(namnhuan(year)==0) max=366;
 else max=365;
 cout<<endl;
+//neu stt ngay > ngay co trong nam (max) thi se sang nam moi 
+//vong lap lap lai den khi so ngay be hon max (truong hop + hon 800 ngay)
+//tinh duoc nam
 while(sng2>max)
 {
 	sng2=sng2-max;
@@ -99,6 +104,9 @@ while(sng2>max)
 else max=365;
 }
 cout<<endl<<sng2;
+
+//chuyen doi tu kieu stt sang thang
+//tinh duoc thang
 int sng3=0,tam;
 int thang=1;
 while(sng3<sng2)
@@ -130,20 +138,26 @@ while(sng3<sng2)
  thang++;
 }
 cout<<endl;
+//lay stt -sothang*songaytrongthang duoc so ngay
 int nd=sng2-(sng3-tam);
+//in lan luot ngay,thang,nam
 cout<<nd<<"//"<<thang-1<<"//"<<year;
-
-
-
 cout<<endl;
+
+
+//Thuc hien nhu phep cong
+//chuyen doi tu kieu int sang kieu ngay
 cout<<"tru ngay ";
 int tru;
 cin>>tru;
 int sng4=sng2-tru;
-
+//kiem tra so ngay cua nam truoc do
 if(namnhuan(year-1)==0) max=366;
 else max=365;
 cout<<endl;
+//khi so ngay sau khi - be hon 0, - nam di 1 va cong so ngay voi so ngay cua nam truoc do
+//tiep tuc thuc hien den khi so ngay >0 (truong hop - hon 800 ngay)
+//lay duoc nam
 while(sng4<=0)
 {
 	sng4=sng4+max;
@@ -153,11 +167,9 @@ while(sng4<=0)
 else max=365;
 }
 
-
-
-
 cout<<endl<<sng4;
 int sng5=0;
+//lay thang tuong tu nhu cong ngay
 thang=1;
 while(sng5<sng4)
 {switch (thang)
@@ -188,6 +200,7 @@ while(sng5<sng4)
  thang++;
 }
 cout<<endl;
+//lay ngay
 nd=sng4-(sng5-tam);
 cout<<nd<<"//"<<thang-1<<"//"<<year;
 
