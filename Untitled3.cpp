@@ -4,7 +4,6 @@
 #include <fstream>
 #include <string>
 #include<vector>
-#include "console.h"
 #include<time.h>
 #include<windows.h>
 #include <cstdlib>
@@ -176,10 +175,12 @@ textcolor(7);
 
 int main()
 {tk:
+	diem tam;
 int modmenu=1;
 int modde=1;
 while(modmenu!=0)
-{menu(modmenu);
+{Sleep(100);
+menu(modmenu);
 if(kbhit())		//nhan tu ban phim
 	{char c;
 	c=getch();
@@ -202,13 +203,18 @@ filein.open("cauhoi.txt",ios_base::in);
 else if(modde==2)
 filein.open("cauhoi2.txt",ios_base::in);
 system("cls");
-while(modde==3)
-{ifstream filein;
-filein.open("diem.txt",ios_base::in);
+
+
+ifstream fileinn;
+fileinn.open("diem.txt",ios_base::in);
 vector<diem> dsdiem;
-nhapdiem2(filein,dsdiem);
+nhapdiem2(fileinn,dsdiem);
+fileinn.close();
+while(modde==3)
+{
+
 xuatdiem2(dsdiem);
-filein.close();
+Sleep(100);
 if(kbhit())		//nhan tu ban phim
 	{char c;
 	c=getch();
@@ -242,12 +248,13 @@ mod[i]=1;
 }
 
 while(kt!=1)
-{
+{Sleep(100);
 xuat1(ds[i],mod[i],dtl[i]);
 
 string da=ds[i].dapand;
 while (pause==1)
-{system("cls");
+{Sleep(100);
+system("cls");
 Pause(mp);
 if(kbhit())		//nhan tu ban phim
 	{char c;
@@ -318,8 +325,9 @@ cout<<"Diem dat duoc:"<<diem;
 
 int pla=1;
 int mpl=1;
+int spmod=0;
 while(pla==1)
-{
+{Sleep(100);
 Playagain(mpl);
 if(kbhit())		//nhan tu ban phim
 	{char c;
@@ -333,19 +341,63 @@ if(kbhit())		//nhan tu ban phim
 	system("cls");goto tk;}
 	else if(mpl==2){system("cls");
 	pla=0;}
-	else {system("cls");goto sd;
+	else {system("cls");spmod=1;goto sp;
 	}
 	}
 }
 Sleep(50);
+sp:
+	string ten;
+	int vt;
+	int save=0;
+	int min=dsdiem[0].diem;
+for(int i=0;i<dsdiem.size()-1;i++)
+{if(dsdiem[i].diem<min) min=dsdiem[i].diem;
 }
-sd:
-int moddiem=1;
-while(moddiem==1)
-{
-ifstream filein;
-filein.open("diem.txt",ios_base::in);
-vector<diem> dsdiem;
-filein.close();
+	while(spmod==1)
+	{	Sleep(400);
+	system("cls");
+	xuatdiem2(dsdiem);
+
+		if(diem<min) {
+	gotoxy(20,12);cout<<"Ban chua du diem de vao xh=))";}
+	else if(diem>min&&save==0) {
+		gotoxy(20,12);cout<<"Nhap vao ten:";
+		cin>>ten;
+		for(int i=9;i>0;i--)
+{if(diem>dsdiem[i].diem) vt=i;
 }
+for(int i=vt;i<dsdiem.size()-1;i++)
+{tam=dsdiem[i];
+dsdiem[i+1]=tam;
 }
+
+dsdiem[vt].ten=ten;
+dsdiem[vt].diem=diem;
+save=1;
+
+
+
+
+
+
+	}
+	else Sleep(100);
+	
+	gotoxy(20,14);
+cout<<"Nhan b de quay ve menu";
+gotoxy(20,15);
+cout<<"Nhan e de thoat";
+if(kbhit())		//nhan tu ban phim
+	{char c;
+	c=getch();
+	if(c=='b') {system("cls");
+	goto tk;}
+	if(c=='e') {system("cls");
+	spmod=0;pla=0;
+	}
+	}
+
+
+}
+}}
