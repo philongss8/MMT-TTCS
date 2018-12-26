@@ -216,7 +216,7 @@ outfile<<dsdanhba[i].email<<endl;
 outfile<<dsdanhba[i].dc;
 }
 cout<<endl<<"\t\t\t\tThem thanh cong";
-cout<<"Nhan R de quay ve menu chinh";
+cout<<"\nNhan R de quay ve menu chinh";
 cout<<endl<<"Nhan E de thoat";
 cout<<endl<<"Nhan L de liet ke danh ba";
 while(true)
@@ -336,7 +336,18 @@ while(true)
 }
 }
 if(modemenu==5)
-{
+{system("cls");
+char temp2[255],*s;
+printf("Nhap ten can tim kiem: ");
+gets(temp2);
+for(int i=0;i<dsdanhba.size();i++)
+{s=strstr(dsdanhba[i].ten,temp2);
+if(s!=NULL) 
+{cout<<"===========================STT: "<<i+1<<"==========================="<<endl;
+Xuatdanhba(dsdanhba[i]);
+}
+}
+
 }
 
 
